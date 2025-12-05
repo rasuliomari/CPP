@@ -6,4 +6,5 @@ int main() {
         cout << "20 is greater than 12 \n";
         cout << "Yes, it is true!" << endl;
     }
+    return 0;
 }
