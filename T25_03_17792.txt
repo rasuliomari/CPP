@@ -1,0 +1,3 @@
+The first number is: 23
+The second number is: 45
+The result of multiplying 23 and 45 is: 1035
