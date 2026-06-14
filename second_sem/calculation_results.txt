@@ -1,0 +1,6 @@
+First Number: 12
+Operator: /
+Second Number: 4
+Result: 12 / 4 = 3
+----------------------------------------
+Calculation completed at: 13:05:19 on Jun 14 2026
