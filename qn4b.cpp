@@ -14,9 +14,9 @@ int main(){
     cout << "Enter the number of units that used: " << endl;
     cin >> units;
     amount_to_pay = units * price;
+    float vat = amount_to_pay * 18 / 100;
     cout << " " << endl;
     if (units<5){
-        float vat = amount_to_pay * 18 / 100;
         float answer = amount_to_pay + vat ;
         cout << "Customer Name: " << customer_name << endl;
         cout << "Customer Place: " << customer_place << endl;
