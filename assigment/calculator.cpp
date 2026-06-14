@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 int main() {
     double T25_03_17792, majengo, nice;
     char horten;
@@ -30,5 +29,7 @@ int main() {
     } else {
         cout <<"Error: Invalid operator!" << endl;
     }
+
+    return 0;
 
 }
