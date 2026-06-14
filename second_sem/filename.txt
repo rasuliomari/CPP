@@ -1,0 +1,2 @@
+My name is Rasuli Omari
+I love programming in C++!
