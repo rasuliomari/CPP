@@ -15,6 +15,12 @@ int main(){
     cout<<" "<< endl;
     cout<<"The result of multiplying "<<x<<" and "<<y<<" is: "<<z<<endl;
 
+    ofstream outFile("T25_03_17792.txt");
+    outFile<<"The first number is: "<<x<<endl;
+    outFile<<"The second number is: "<<y<<endl;
+    outFile<<"The result of multiplying "<<x<<" and "<<y<<" is: "<<z<<endl;
+    outFile.close();
+
 
     return 0;
 }
