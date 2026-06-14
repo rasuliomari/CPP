@@ -9,8 +9,7 @@ int main() {
     float units, price = 2000.00, amount_to_pay;
 
     cout << "WELCOME TO THE DUWAS COMPANY LIMITED\n" << endl;
-
-    // User details input
+    
     cout << "Enter your full name: ";
     getline(cin, fullName);
 
