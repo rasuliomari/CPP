@@ -3,10 +3,8 @@ using namespace std;
 
 int main() {
     int day;
-
     cout << "Enter day number (1-7): ";
     cin >> day;
-
     switch(day) {
         case 1:
             cout << "You enter number 1 and the day you choose is Monday";
@@ -32,6 +30,5 @@ int main() {
         default:
             cout << "Invalid day";
     }
-
     return 0;
 }
