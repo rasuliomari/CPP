@@ -236,3 +236,41 @@ SELECT COUNT(*) AS Projects  FROM tbProject  WHERE DeptNo = 2;
 SELECT COUNT(*) AS Locations FROM tbLocation  WHERE DeptNo = 2;
 
 DELETE FROM tbDepartment WHERE DeptNo = 2;
+
+-- Creating user accounts and granting privileges
+CREATE USER 'hr_clerk'@'localhost'       IDENTIFIED BY 'HrPass2024!';
+CREATE USER 'project_lead'@'localhost'   IDENTIFIED BY 'ProjPass2024!';
+CREATE USER 'payroll_officer'@'localhost' IDENTIFIED BY 'PayPass2024!';
+CREATE USER 'db_viewer'@'localhost'       IDENTIFIED BY 'ViewPass2024!';
+
+GRANT SELECT, INSERT, UPDATE
+  ON companyData2026.tbEmployee
+  TO 'hr_clerk'@'localhost';
+ 
+GRANT SELECT, INSERT, UPDATE
+  ON companyData2026.tbDependant
+  TO 'hr_clerk'@'localhost';
+
+GRANT SELECT
+  ON companyData2026.tbProject
+  TO 'project_lead'@'localhost';
+ 
+GRANT SELECT, UPDATE
+  ON companyData2026.tbWorkson
+  TO 'project_lead'@'localhost';
+
+GRANT SELECT (SSN, fName, Surname, DeptNo, Salary)
+  ON companyData2026.tbEmployee
+  TO 'payroll_officer'@'localhost';
+
+GRANT SELECT
+  ON companyData2026.*
+  TO 'db_viewer'@'localhost';
+ 
+FLUSH PRIVILEGES;
+
+-- Verfying users privileges
+SHOW GRANTS FOR 'hr_clerk'@'localhost';
+SHOW GRANTS FOR 'project_lead'@'localhost';
+SHOW GRANTS FOR 'payroll_officer'@'localhost';
+SHOW GRANTS FOR 'db_viewer'@'localhost';
