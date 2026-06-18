@@ -161,3 +161,35 @@ INSERT INTO tbWorkson (pNumber, SSN, NoHours) VALUES
   (5, 543210987, 15.0),
   (5, 888665555, 10.0);
 
+INSERT INTO tbDependant (SSN, dfName, dmName, dSurname, Sex, DateofBirth, Relationship)
+VALUES
+  (333445555, 'Alice',   NULL, 'Doe',     'F', '1990-04-05', 'Daughter'),
+  (333445555, 'Tom',     NULL, 'Doe',     'M', '1992-10-25', 'Son'),
+  (888665555, 'Michael', NULL, 'Smith',   'M', '1975-08-20', 'Spouse'),
+  (123456789, 'Grace',   NULL, 'Johnson', 'F', '2015-06-12', 'Daughter'),
+  (666884444, 'Joy',     NULL, 'Nkosi',   'F', '2010-03-30', 'Daughter'),
+  (999000111, 'Babu',    NULL, 'Baraka',  'M', '2019-07-01', 'Son');
+
+-- Verify all inserted records
+SELECT * FROM tbDepartment;
+SELECT * FROM tbEmployee;
+SELECT * FROM tbProject;
+SELECT * FROM tbLocation;
+SELECT * FROM tbWorkson;
+
+-- The Truncate command
+SELECT * FROM tbDependant;
+
+TRUNCATE TABLE tbDependant;
+
+SELECT * FROM tbDependant;
+
+INSERT INTO tbDependant (SSN, dfName, dmName, dSurname, Sex, DateofBirth, Relationship)
+VALUES
+  (333445555, 'Alice',   NULL, 'Doe',     'F', '1990-04-05', 'Daughter'),
+  (333445555, 'Tom',     NULL, 'Doe',     'M', '1992-10-25', 'Son'),
+  (888665555, 'Michael', NULL, 'Smith',   'M', '1975-08-20', 'Spouse'),
+  (123456789, 'Grace',   NULL, 'Johnson', 'F', '2015-06-12', 'Daughter'),
+  (666884444, 'Joy',     NULL, 'Nkosi',   'F', '2010-03-30', 'Daughter'),
+  (999000111, 'Babu',    NULL, 'Baraka',  'M', '2019-07-01', 'Son');
+
