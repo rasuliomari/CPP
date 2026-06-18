@@ -274,3 +274,22 @@ SHOW GRANTS FOR 'hr_clerk'@'localhost';
 SHOW GRANTS FOR 'project_lead'@'localhost';
 SHOW GRANTS FOR 'payroll_officer'@'localhost';
 SHOW GRANTS FOR 'db_viewer'@'localhost';
+
+-- revoking privileges
+REVOKE UPDATE
+  ON companyData2026.tbWorkson
+  FROM 'project_lead'@'localhost';
+
+SHOW GRANTS FOR 'project_lead'@'localhost';
+
+REVOKE ALL PRIVILEGES
+  ON companyData2026.*
+  FROM 'db_viewer'@'localhost';
+ 
+FLUSH PRIVILEGES;
+
+SHOW GRANTS FOR 'db_viewer'@'localhost';
+
+DROP USER 'db_viewer'@'localhost';
+
+SELECT user, host FROM mysql.user WHERE user = 'db_viewer';
