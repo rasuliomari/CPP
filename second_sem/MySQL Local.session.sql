@@ -193,3 +193,8 @@ VALUES
   (666884444, 'Joy',     NULL, 'Nkosi',   'F', '2010-03-30', 'Daughter'),
   (999000111, 'Babu',    NULL, 'Baraka',  'M', '2019-07-01', 'Son');
 
+-- Attempting to Truncate a parent table (restricted case)
+TRUNCATE TABLE tbEmployee; -- This will fail due to foreign key constraints
+
+TRUNCATE TABLE tbDepartment; -- This will succeed as it has no dependent tables
+
