@@ -198,3 +198,22 @@ TRUNCATE TABLE tbEmployee; -- This will fail due to foreign key constraints
 
 TRUNCATE TABLE tbDepartment; -- This will succeed as it has no dependent tables
 
+-- CASCADE AND NO ACTION
+SELECT SSN, pNumber, NoHours      FROM tbWorkson   WHERE SSN = 666884444;
+SELECT SSN, dfName, Relationship FROM tbDependant WHERE SSN = 666884444;
+
+UPDATE tbEmployee SET SSN = 777777777 WHERE SSN = 666884444;
+
+SELECT SSN, pNumber, NoHours      FROM tbWorkson   WHERE SSN = 777777777;
+SELECT SSN, dfName, Relationship FROM tbDependant WHERE SSN = 777777777;
+
+-- Observe ON DELETE CASCADE
+SELECT * FROM tbDependant WHERE SSN = 999000111;
+SELECT * FROM tbWorkson  WHERE SSN = 999000111;
+
+DELETE FROM tbEmployee WHERE SSN = 999000111;
+
+UPDATE tbDepartment SET DeptNo = 10 WHERE DeptNo = 1; -- This will update DeptNo in tbDepartment and cascade the change to tbEmployee, tbProject, and tbLocation
+
+DELETE FROM tbDepartment WHERE DeptNo = 2; -- This will delete the department and cascade the delete to tbEmployee, tbProject, and tbLocation, but will fail if there are dependent records in tbWorkson or tbDependant due to NO ACTION constraints
+
