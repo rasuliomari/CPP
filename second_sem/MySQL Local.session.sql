@@ -104,4 +104,60 @@ ALTER TABLE tbDepartment
 ALTER TABLE tbDepartment
   RENAME COLUMN DeptPhone TO ContactNumber;
 
+--Droping a column
+ALTER TABLE tbDepartment
+  DROP COLUMN ContactNumber;
+
+ALTER TABLE tbEmployee
+  DROP COLUMN DeptNo; --Cannot drop index 'DeptNo': needed in a foreign key constraint
+
+SELECT CONSTRAINT_NAME
+FROM   INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+WHERE  TABLE_SCHEMA = 'CompanyDatabase2026'
+  AND  TABLE_NAME   = 'tbEmployee'
+  AND  COLUMN_NAME  = 'DeptNo';
+
+-- Inserting records into the table Departments
+INSERT INTO tbDepartment (DeptNo, DeptName, mgrSSN, MgrStartDate) VALUES
+(1, 'Research',        333445555, '2018-06-01'),
+(2, 'Administration',  453453453, '2017-03-15'),
+(3, 'Headquarters',    888665555, '2010-01-01'),
+(4, 'ICT',             666884444, '2019-01-10');
+
+INSERT INTO tbEmployee (SSN, fName, mName, Surname, Sex, EmpAddress, Salary, DeptNo, mgrSSN)
+VALUES
+  (888665555, 'Asha',  NULL,  'Smith',   'F', 'Box 457, Tanga',          2000000, 3, NULL),
+  (333445555, 'John',  'B.',  'Doe',     'M', 'Box 123, Dodoma',          1800000, 1, 888665555),
+  (453453453, 'Grace', 'K.',  'Mwamba',  'F', 'Box 222, Dar es Salaam',   1600000, 2, 888665555),
+  (666884444, 'Peter', 'M.',  'Nkosi',   'M', 'Box 101, Dodoma',          1700000, 4, 888665555),
+  (123456789, 'Alice', NULL,  'Johnson', 'F', 'Box 789, Arusha',          1500000, 1, 333445555),
+  (987654321, 'James', NULL,  'Osei',    'M', 'Box 333, Mwanza',          1400000, 2, 453453453),
+  (543210987, 'Lena',  NULL,  'Cruz',    'F', 'Box 555, Moshi',           1300000, 4, 666884444),
+  (999000111, 'Demo',  NULL,  'Baraka',  'M', 'Box 999, Dodoma',          1200000, 2, 453453453);
+
+INSERT INTO tbProject (pNumber, pName, pLocation, Budget, DeptNo) VALUES
+  (1, 'ProductX',        'Dodoma',        5000000.00, 1),
+  (2, 'ProductY',        'Arusha',        8000000.00, 1),
+  (3, 'Computerisation', 'Dar es Salaam', 3000000.00, 2),
+  (4, 'Reorganisation',  'Dodoma',        2000000.00, 2),
+  (5, 'NewBenefits',     'Mwanza',        4500000.00, 4);
+
+INSERT INTO tbLocation (DeptNo, DeptLocation) VALUES
+  (1, 'Dodoma'), (1, 'Arusha'),
+  (2, 'Dodoma'), (2, 'Mwanza'),
+  (3, 'Dar es Salaam'),
+  (4, 'Dodoma');
+
+INSERT INTO tbWorkson (pNumber, SSN, NoHours) VALUES
+  (1, 123456789, 32.5),
+  (1, 333445555,  7.5),
+  (2, 333445555, 10.0),
+  (2, 666884444, 10.0),
+  (3, 453453453, 20.0),
+  (3, 987654321, 35.0),
+  (4, 888665555, 20.0),
+  (4, 987654321,  5.0),
+  (5, 666884444, 20.0),
+  (5, 543210987, 15.0),
+  (5, 888665555, 10.0);
 
