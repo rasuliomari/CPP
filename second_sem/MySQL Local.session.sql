@@ -217,3 +217,22 @@ UPDATE tbDepartment SET DeptNo = 10 WHERE DeptNo = 1; -- This will update DeptNo
 
 DELETE FROM tbDepartment WHERE DeptNo = 2; -- This will delete the department and cascade the delete to tbEmployee, tbProject, and tbLocation, but will fail if there are dependent records in tbWorkson or tbDependant due to NO ACTION constraints
 
+SELECT SSN, fName, Surname FROM tbEmployee WHERE DeptNo = 2;
+
+SELECT pNumber, pName FROM tbProject WHERE DeptNo = 2;
+
+SELECT * FROM tbLocation WHERE DeptNo = 2;
+
+-- Resolving the confilct
+UPDATE tbEmployee SET DeptNo = 3 WHERE DeptNo = 2;
+
+UPDATE tbProject SET DeptNo = 3 WHERE DeptNo = 2;
+
+DELETE FROM tbLocation WHERE DeptNo = 2;
+
+-- Verfy that no child references
+SELECT COUNT(*) AS Employees FROM tbEmployee WHERE DeptNo = 2;
+SELECT COUNT(*) AS Projects  FROM tbProject  WHERE DeptNo = 2;
+SELECT COUNT(*) AS Locations FROM tbLocation  WHERE DeptNo = 2;
+
+DELETE FROM tbDepartment WHERE DeptNo = 2;
