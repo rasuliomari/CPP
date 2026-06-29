@@ -16,6 +16,22 @@
             "username": "root",
             "password": "Rasuli@1",
             "connectionTimeout": 30
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "MySQL Localhost",
+            "database": "demo",
+            "username": "root",
+            "password": "Rasuli@1",
+            "connectionTimeout": 30
         }
     ]
 }
