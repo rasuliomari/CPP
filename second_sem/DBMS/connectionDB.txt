@@ -4,8 +4,6 @@ sudo chown mysql:mysql /run/mysqld
 
 sudo chmod 755 /run/mysqld
 
-sudo systemctl restart mariadb
-
 sudo systemctl status mariadb
 
 mariadb -u root -p
